@@ -1,0 +1,9 @@
+body {
+  background-color: darkgreen;
+  margin: 0;
+}
+
+img {
+  width: 200px;
+  position: absolute;
+}

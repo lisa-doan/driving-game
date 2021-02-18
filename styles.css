@@ -1,9 +1,25 @@
 body {
   background-color: darkgreen;
-  margin: 0;
+  margin-top: 50px;
 }
 
 img {
   width: 200px;
   position: absolute;
+}
+
+.north {
+  transform: rotate(-90deg);
+}
+
+.south {
+  transform: rotate(90deg);
+}
+
+.west {
+  transform: rotate(180deg);
+}
+
+.east {
+  transform: rotate(0deg);
 }

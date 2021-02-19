@@ -16,12 +16,13 @@ function direction(event) {
     case (key === 'ArrowRight'):
       $car.className = 'east';
       break;
-    case (key === ' ') && (intervalID === null):
+    case (' ') && (intervalID === null):
       intervalID = setInterval(driveCar, 16);
       break;
-    case (key === ' ') && (!intervalID === null):
+    case (' ') && (intervalID !== null):
       clearInterval(intervalID);
       intervalID = null;
+      break;
   }
 }
 

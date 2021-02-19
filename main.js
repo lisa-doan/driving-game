@@ -1,4 +1,5 @@
 var $car = document.querySelector('img');
+var intervalID = null;
 
 function direction(event) {
   var arrowKey = event.key;
@@ -18,4 +19,16 @@ function direction(event) {
   }
 }
 
-window.addEventListener('keydown', direction);
+function startCar() {
+  if (event.key === ' ') {
+    intervalID = setInterval(driveCar, 16);
+  }
+}
+
+function driveCar() {
+  $car.style.left = $car.x + 5 + 'px';
+
+}
+
+addEventListener('keydown', direction);
+addEventListener('keydown', startCar);

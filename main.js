@@ -2,28 +2,42 @@ var $car = document.querySelector('img');
 var intervalID = null;
 
 function direction(event) {
-  var arrowKey = event.key;
-  switch (arrowKey) {
-    case 'ArrowUp':
+  var key = event.key;
+  switch (true) {
+    case (key === 'ArrowUp'):
       $car.className = 'north';
       break;
-    case 'ArrowDown':
+    case (key === 'ArrowDown'):
       $car.className = 'south';
       break;
-    case 'ArrowLeft':
+    case (key === 'ArrowLeft'):
       $car.className = 'west';
       break;
-    case 'ArrowRight':
+    case (key === 'ArrowRight'):
       $car.className = 'east';
       break;
-    case ' ':
+    case (key === ' ') && (intervalID === null):
       intervalID = setInterval(driveCar, 16);
       break;
+    case (key === ' ') && (!intervalID === null):
+      clearInterval(intervalID);
+      intervalID = null;
   }
 }
 
 function driveCar() {
-  $car.style.left = $car.x + 5 + 'px';
+  if ($car.className === 'east') {
+    $car.style.left = $car.x + 5 + 'px';
+  }
+  if ($car.className === 'west') {
+    $car.style.left = $car.x - 5 + 'px';
+  }
+  if ($car.className === 'north') {
+    $car.style.top = $car.y - 5 + 'px';
+  }
+  if ($car.className === 'south') {
+    $car.style.top = $car.y + 5 + 'px';
+  }
 }
 
 addEventListener('keydown', direction);

@@ -16,19 +16,14 @@ function direction(event) {
     case 'ArrowRight':
       $car.className = 'east';
       break;
-  }
-}
-
-function startCar() {
-  if (event.key === ' ') {
-    intervalID = setInterval(driveCar, 16);
+    case ' ':
+      intervalID = setInterval(driveCar, 16);
+      break;
   }
 }
 
 function driveCar() {
   $car.style.left = $car.x + 5 + 'px';
-
 }
 
 addEventListener('keydown', direction);
-addEventListener('keydown', startCar);

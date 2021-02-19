@@ -3,25 +3,26 @@ var intervalID = null;
 
 function direction(event) {
   var key = event.key;
-  switch (key) {
-    case 'ArrowUp':
+  switch (true) {
+    case (key === 'ArrowUp'):
       $car.className = 'north';
       break;
-    case 'ArrowDown':
+    case (key === 'ArrowDown'):
       $car.className = 'south';
       break;
-    case 'ArrowLeft':
+    case (key === 'ArrowLeft'):
       $car.className = 'west';
       break;
-    case 'ArrowRight':
+    case (key === 'ArrowRight'):
       $car.className = 'east';
       break;
-  }
-  if (key === ' ' && intervalID === null) {
-    intervalID = setInterval(driveCar, 16);
-  } else {
-    clearInterval(intervalID);
-    intervalID = null;
+    case (' ') && (intervalID === null):
+      intervalID = setInterval(driveCar, 16);
+      break;
+    case (' ') && (intervalID !== null):
+      clearInterval(intervalID);
+      intervalID = null;
+      break;
   }
 }
 

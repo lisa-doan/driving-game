@@ -27,7 +27,18 @@ function direction(event) {
 }
 
 function driveCar() {
-  $car.style.left = $car.x + 5 + 'px';
+  if ($car.className === 'east') {
+    $car.style.left = $car.x + 5 + 'px';
+  }
+  if ($car.className === 'west') {
+    $car.style.left = $car.x - 5 + 'px';
+  }
+  if ($car.className === 'north') {
+    $car.style.top = $car.y - 5 + 'px';
+  }
+  if ($car.className === 'south') {
+    $car.style.top = $car.y + 5 + 'px';
+  }
 }
 
 addEventListener('keydown', direction);

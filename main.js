@@ -2,8 +2,8 @@ var $car = document.querySelector('img');
 var intervalID = null;
 
 function direction(event) {
-  var arrowKey = event.key;
-  switch (arrowKey) {
+  var key = event.key;
+  switch (key) {
     case 'ArrowUp':
       $car.className = 'north';
       break;
@@ -16,9 +16,12 @@ function direction(event) {
     case 'ArrowRight':
       $car.className = 'east';
       break;
-    case ' ':
-      intervalID = setInterval(driveCar, 16);
-      break;
+  }
+  if (key === ' ' && intervalID === null) {
+    intervalID = setInterval(driveCar, 16);
+  } else {
+    clearInterval(intervalID);
+    intervalID = null;
   }
 }
 
